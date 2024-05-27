@@ -6,7 +6,7 @@ export const HeaderContainer = styled.div`
     height: 47px;
 
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin: 0 auto;
 `
@@ -33,12 +33,14 @@ export const Wrapper = styled.div`
 `
 
 export const BuscarInputContainer = styled.div`
-    width: 275px;
-    height: 20px;
+    width: 175px;
+    height: 30px;
     background: #2D2D37;
     border-radius: 8px;
     padding: 2px 5px;
-    margin: 0  12px;
+    margin: 0 12px;
+    display: flex;
+    
 `
 
 export const Menu = styled.a`

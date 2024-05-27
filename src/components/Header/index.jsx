@@ -1,13 +1,14 @@
 import Button from "../Button";
 import { BuscarInputContainer, HeaderContainer, Input, Menu, MenuRight, Row, Wrapper } from "./styles";
-
+import Logo from '../../assets/logo-dio.png';
+import Banner from '../../assets/banner.png';
 
 const Header = () => {
   return (
     <Wrapper>
         <HeaderContainer>
             <Row>
-                <img src={} alt="Logo da DIO" />
+                <img src={Logo} alt="Logo da DIO" />
                 <BuscarInputContainer>
                     <Input placeholder="Buscar..." />
                 </BuscarInputContainer>

@@ -1,32 +1,32 @@
 import { Link } from "react-router-dom";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
-import { Container, Text, Title, TitleHighlight } from "./styles";
-import Banner from '../../assets/banner.png'
+import { Column, Container, Title, TitleHighlight, } from "./styles";
+import Card from "../../components/Card";
+import UserInfo from "../../components/UserInfo";
+
 
 const Feed = () => {
     return (
         <>
-            <Header />
+            <Header autenticado={true}/>
             <Container>
-                <div>
-                    <Title>
-                        <TitleHighlight>
-                            Implemente
-                            <br />
-                        </TitleHighlight>
-                        o seu futuro global agora!
-                    </Title>
-                    <Text>
-                        Domine as tecnologias utilizadas pelas empresas mais inovadoras do mundo e encare seu novo desafio profissional, evoluindo em comunidade com os melhores experts.
-                    </Text>
-                    <Link to="/login">
-                    <Button title='Começar agora' variant="secondary" onClick={() => null}></Button>
-                    </Link>
-                </div>
-                <div>
-                    <img src={Banner} alt="Banner" />
-                </div>
+                <Column flex={3}>
+                    <Title>Feed</Title>
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
+                </Column>
+                <Column flex={1}>
+                    <TitleHighlight># RANKING TOP 5 DA SEMANA</TitleHighlight>
+                    <UserInfo percentual={99} nome='Gabriel Faria' image='https://avatars.githubusercontent.com/u/94396134?v=4'/>
+                    <UserInfo percentual={86} nome='Gabriel Faria' image='https://avatars.githubusercontent.com/u/94396134?v=4'/>
+                    <UserInfo percentual={50} nome='Gabriel Faria' image='https://avatars.githubusercontent.com/u/94396134?v=4'/>
+                    <UserInfo percentual={35} nome='Gabriel Faria' image='https://avatars.githubusercontent.com/u/94396134?v=4'/>
+                    <UserInfo percentual={12} nome='Gabriel Faria' image='https://avatars.githubusercontent.com/u/94396134?v=4'/>
+                </Column>
             </Container>
         </>
     )

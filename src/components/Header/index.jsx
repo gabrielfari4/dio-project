@@ -1,23 +1,36 @@
 import Button from "../Button";
-import { BuscarInputContainer, HeaderContainer, Input, Menu, MenuRight, Row, Wrapper } from "./styles";
+import { BuscarInputContainer, HeaderContainer, Input, Menu, MenuRight, Row, UserPicture, Wrapper } from "./styles";
 import Logo from '../../assets/logo-dio.png';
+import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ autenticado }) => {
   return (
     <Wrapper>
         <HeaderContainer>
             <Row>
-                <img src={Logo} alt="Logo da DIO" />
-                <BuscarInputContainer>
-                    <Input placeholder="Buscar..." />
-                </BuscarInputContainer>
-                <Menu>Live Code</Menu>
-                <Menu>Global</Menu>
+                <Link to={'/'}>
+                    <img src={Logo} alt="Logo da DIO" />
+                </Link>
+                {autenticado ? (
+                    <>
+                        <BuscarInputContainer>
+                            <Input placeholder="Buscar..." />
+                        </BuscarInputContainer>
+                        <Menu>Live Code</Menu>
+                        <Menu>Global</Menu>
+                    </>
+                ) : null}
              </Row>  
             <Row>
-                <MenuRight href="#">Nome</MenuRight>
-                <Button title='Entrar' />
-                <Button title='Cadastrar' />
+                {autenticado ? (
+                    <UserPicture src="https://avatars.githubusercontent.com/u/94396134?v=4"/>
+                ) : (
+                    <>
+                        <MenuRight href="#">Nome</MenuRight>
+                        <Button title='Entrar' />
+                        <Button title='Cadastrar' />
+                    </>
+                )}
             </Row>  
         </HeaderContainer>
     </Wrapper>

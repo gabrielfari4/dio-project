@@ -5,10 +5,10 @@ import { CardContainer, Content, HasInfo, ImageBackground, PostInfo, UserInfo, U
 const Card = () => {
   return (
     <CardContainer>
-        <ImageBackground />
+        <ImageBackground src="https://media.licdn.com/dms/image/D4D16AQHFEbxHekTMhg/profile-displaybackgroundimage-shrink_350_1400/0/1697556057800?e=1722470400&v=beta&t=CWTvjhRpylmRsg3CJHTQE-PAuzcqt27IHKv7OapkUeM"/>
         <Content>
             <UserInfo>
-                <UserPicture />
+                <UserPicture src="https://avatars.githubusercontent.com/u/94396134?v=4"/>
                 <div>
                     <h4>Gabriel Faria</h4>
                     <p>Há 8 minutos.</p>

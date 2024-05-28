@@ -76,3 +76,13 @@ export const Row = styled.div`
     margin-top: 20px;
 `
 
+export const ValidationText = styled.p`
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    margin-top: 10px;
+
+    color: #FF0000;
+`

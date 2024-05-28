@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import Header from "../../components/Header";
-import { Column, Container, CriarText, EsqueciText, Row, SubTitleLogin, Title, TitleLogin, Wrapper } from "./styles";
+import { Column, Container, CriarText, EsqueciText, Row, SubTitleLogin, Title, TitleLogin, ValidationText, Wrapper } from "./styles";
 import Input from "../../components/Input";
 import { MdEmail, MdLock } from "react-icons/md";
 import { useState } from "react";
@@ -9,24 +9,33 @@ import { useState } from "react";
 const Login = () => {
 
     const navigate = useNavigate();
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [validate, setValidate] = useState('')
 
     const handleClickFeed = () => {
         navigate('/feed')
     }
 
-    const [email, setEmail] = useState('')
-
     const handleEmail = (e) => {
         setEmail(e.target.value)
     }
 
-    const [password, setPassword] = useState('')
-
     const handlePassword = (e) => {
         setPassword(e.target.value)
     }
+    
+    const handleValidation = (e) => {
+        e.preventDefault()
+        const validado = email === 'gabriel@gmail.com' && password === '123456'
 
-    let validado = email === 'gabriel@gmail.com' && password === '123456'
+        if (validado) {
+            handleClickFeed()
+        } else {
+            setValidate('E-mail ou senha inválido.')
+        }
+
+    }
 
     return (
         <>
@@ -41,11 +50,12 @@ const Login = () => {
                     <Wrapper>
                         <TitleLogin>Faça seu cadastro</TitleLogin>
                         <SubTitleLogin>Faça seu login e make the change._</SubTitleLogin>
-                        <form>
-                            <Input placeholder='E-mail' leftIcon={<MdEmail />} onChange={handleEmail}/>
-                            <Input placeholder='Senha' type='password' leftIcon={<MdLock />} onChange={handlePassword}/>
-                            <Button title='Entrar' variant="secondary" onClick={validado ? handleClickFeed : null} type='button'/>
+                        <form onSubmit={handleValidation}>
+                            <Input placeholder='E-mail' leftIcon={<MdEmail />} onChange={handleEmail} required/>
+                            <Input placeholder='Senha' type='password' leftIcon={<MdLock />} onChange={handlePassword} required/>
+                            <Button title='Entrar' variant="secondary" type='submit'/>
                         </form>
+                        {validate && <ValidationText>{validate}</ValidationText>}
                         <Row>
                             <EsqueciText>Esqueci minha senha </EsqueciText>
                             <CriarText>Criar conta</CriarText>

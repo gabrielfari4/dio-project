@@ -27,7 +27,7 @@ const Login = () => {
     
     const handleValidation = (e) => {
         e.preventDefault()
-        const validado = email === 'gabriel@gmail.com' && password === '123456'
+        const validado = email !== 'usuario@email.com' && password !== 'senha'
 
         if (validado) {
             handleClickFeed()

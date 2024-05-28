@@ -61,6 +61,27 @@ export const PostInfo = styled.div`
         font-family: 'Open Sans';
         font-style: normal;
         font-weight: 700;
+        font-size: 18px;
+        life-height: 25px;
+        color: #FFFFFF;
+    }
+
+    p {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        life-height: 16px;
+    }
+`
+
+export const HasInfo = styled.div`
+    margin-top: 12px;
+
+    h4 {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 700;
         font-size: 12px;
         life-height: 16px;
         color: #FFFFFF;

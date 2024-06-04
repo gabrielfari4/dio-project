@@ -19,18 +19,18 @@ const Teste = () => {
     }, [])
     
     // useMemo - utilizado para memorizar um cálculo, uma variável. Caso haja algum elemento no array, o useMemo vai memorizar conforme a mudança do elemento, caso não haja, a memória será do primeiro retorno obtido. Gerenciar a renderização de variáveis
-    /* const calculo = useMemo(() => {
+    const calculo = useMemo(() => {
         console.log('calculou')
         return 10 + age
     }, []) 
 
-    console.log('renderizou', calculo) */
+    console.log('renderizou', calculo)
     
 
     // useEffect - utilizado para lidar com efeitos adversos. Disparado uma vez quando o array está vazio ou sempre que houver modificação no que foi colocado no array. 
-    /* useEffect(() => {
+    useEffect(() => {
         alert('renderizei')
-    }, []) */
+    }, [])
 
     return (
         <div>

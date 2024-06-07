@@ -47,8 +47,6 @@ const Login = () => {
         } 
     }
 
-    
-
     // implementação que feita por mim para validar o login
     /* 
     const handleClickFeed = () => {
@@ -96,7 +94,7 @@ const Login = () => {
                         {/* {validate && <ValidationText>{validate}</ValidationText>} */}
                         <Row>
                             <EsqueciText>Esqueci minha senha </EsqueciText>
-                            <CriarText>Criar conta</CriarText>
+                            <CriarText><a href='/signup'>Criar conta</a></CriarText>
                         </Row>
                     </Wrapper>
                 </Column>

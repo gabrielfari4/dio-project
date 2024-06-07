@@ -1,10 +1,10 @@
 import { Controller } from "react-hook-form";
 import { ErrorText, IconContainer, InputContainer, InputText } from "./styles";
 
-const Input = ({ leftIcon, name, control, errorMessage, ...rest}) => {
+const Input = ({ onChange, leftIcon, name, control, errorMessage, ...rest}) => {
   return (
     <>
-      <InputContainer>
+      <InputContainer onChange={onChange}>
           {leftIcon ? (<IconContainer>{leftIcon}</IconContainer>) : null}
           <Controller 
             name={name}

@@ -1,9 +1,19 @@
 import Button from "../Button";
 import { BuscarInputContainer, HeaderContainer, Input, Menu, MenuRight, Row, UserPicture, Wrapper } from "./styles";
 import Logo from '../../assets/logo-dio.png';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = ({ autenticado }) => {
+    const navigate = useNavigate();
+
+    const handleClickSignIn = () => {
+        navigate('/login')
+    }
+    
+    const handleClickSignUp = () => {
+        navigate('/signup')
+    }
+
   return (
     <Wrapper>
         <HeaderContainer>
@@ -27,8 +37,8 @@ const Header = ({ autenticado }) => {
                 ) : (
                     <>
                         <MenuRight href="#">Nome</MenuRight>
-                        <Button title='Entrar' />
-                        <Button title='Cadastrar' />
+                        <Button title='Entrar' onClick={handleClickSignIn}/>
+                        <Button title='Cadastrar' onClick={handleClickSignUp}/>
                     </>
                 )}
             </Row>  

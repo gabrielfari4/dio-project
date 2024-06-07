@@ -59,6 +59,10 @@ export const CriarText = styled.p`
     line-height: 19px;
 
     color: #E23DD7;
+    a {
+        text-decoration: none;
+        color: #E23DD7;
+    }
 `
 
 export const Wrapper = styled.div`

@@ -9,6 +9,7 @@ import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { MdEmail, MdLock } from "react-icons/md";
+import { api } from "../../services/api";
 
 const schema = yup.object(
     {
@@ -48,12 +49,13 @@ const SignUp = () => {
     });
 
     const onSubmit = async formData => {
-            //const { data } = await api.get(`user?email=${formData.email}&senha=${formData.password}`)
-            if (newName && newEmail && newPassword) {
+            const { data } = await api.get(`user`)
+            console.log(data)
+            if (data.find(user => user.email === newEmail)) {
+                alert('E-mail já cadastrado.')
+            } else if (newName && newEmail && newPassword) {
                 navigate('/feed')
-            } else {
-                alert('Email ou senha inválido.')
-            }
+            } 
     }
 
     return (

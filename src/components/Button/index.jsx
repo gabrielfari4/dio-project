@@ -1,9 +1,9 @@
 import { ButtonContainer } from "./styles";
 
 
-const Button = ({ title, variant = 'primary', onClick }) => {
+const Button = ({ title, variant = 'primary', onClick, marginTop }) => {
   return (
-    <ButtonContainer variant={variant} onClick={onClick} >
+    <ButtonContainer variant={variant} onClick={onClick} marginTop={marginTop}>
         {title}
     </ButtonContainer>
   )

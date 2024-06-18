@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import Header from "../../components/Header"
 import Input from "../../components/Input";
-import { Column, Container, SubTitleLogin, Title, TitleLogin, Wrapper } from "./styles";
+import { Column, Container, SubTitleLogin, TenhoContaText, Title, TitleLogin, Wrapper } from "./styles";
 import { FaUser } from "react-icons/fa6";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup"
@@ -70,7 +70,7 @@ const SignUp = () => {
                         <TitleLogin>
                             Comece agora grátis
                         </TitleLogin>
-                        <SubTitleLogin>
+                        <SubTitleLogin marginTop={'10px'} marginBottom={'30px'}>
                             Crie sua conta e make the change._
                         </SubTitleLogin>
                         <form onSubmit={handleSubmit(onSubmit)}>
@@ -78,9 +78,15 @@ const SignUp = () => {
                                 <Input name='name' type='text' errorMessage={errors?.name?.message} control={control} placeholder='Nome completo' onChange={handleName} leftIcon={<FaUser />}/>
                                 <Input name='email' type='email' errorMessage={errors?.email?.message} control={control} placeholder='seu@email.com' onChange={handleEmail} leftIcon={<MdEmail />}/>
                                 <Input name='password' type='password' errorMessage={errors?.password?.message} control={control} placeholder='Senha' onChange={handlePassword} leftIcon={<MdLock />}/>
-                                <Button title='Criar minha conta' variant="secondary" type='submit' />
+                                <Button title='Criar minha conta' variant="secondary" type='submit' marginTop={'30px'}/>
                             
                         </form>
+                        <SubTitleLogin marginTop={'30px'} marginBottom={'15px'}>
+                        Ao clicar em "criar minha conta grátis", declaro que aceito as Políticas de Privacidade e os Termos de Uso da DIO.
+                        </SubTitleLogin>
+                        <TenhoContaText>
+                            Já tenho conta. <a href="/login">Fazer login</a>
+                        </TenhoContaText>
                     </Wrapper>
                 </Column>
             </Container>

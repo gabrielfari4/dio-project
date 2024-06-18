@@ -37,7 +37,8 @@ const Login = () => {
     const onSubmit = async formData => {
         try{
             const { data } = await api.get(`user?email=${formData.email}&senha=${formData.password}`)
-            if (data.length === 1) {
+            console.log(data)
+            if (data.length === 1 && formData.password === data[0].senha) {
                 navigate('/feed')
             } else {
                 alert('Email ou senha inválido.')
@@ -89,7 +90,7 @@ const Login = () => {
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <Input name='email'  control={control} errorMessage={errors?.email?.message} placeholder='E-mail' leftIcon={<MdEmail />}/>
                             <Input name='password'  control={control} errorMessage={errors?.password?.message} placeholder='Senha' type='password' leftIcon={<MdLock />}/>
-                            <Button title='Entrar' variant="secondary" type='submit' />
+                            <Button title='Entrar' variant="secondary" type='submit' marginTop={'30px'}/>
                         </form>
                         {/* {validate && <ValidationText>{validate}</ValidationText>} */}
                         <Row>

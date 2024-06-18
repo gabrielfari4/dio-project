@@ -3,9 +3,9 @@ import styled, { css } from "styled-components";
 
 export const ButtonContainer = styled.button`
     background: #565656;
-    border-radius: 22px;
+    border-radius: 27px;
     position: relative;
-    color: #000000;
+    color: #FFFFFF;
     padding: 2px 12px;
     min-width: 120px;
     width: 100%;
@@ -13,14 +13,15 @@ export const ButtonContainer = styled.button`
     &:hover {
         opacity: 0.6;
         cursor: pointer;
-    }
-    
-    ${({variant}) => variant !== "primary" && css`
+        }
+        
+        ${({variant}) => variant !== "primary" && css`
         font-size: 16px;
         min-width: 167px;
-        height: 53px;
+        height: 43px;
+        max-width: 350px;
         background: #E4105D;
-        margin: 0;
+        margin-top: ${(props) => props.marginTop};
         &:hover {
             opacity: 0.6;
             cursor: pointer;
@@ -32,9 +33,10 @@ export const ButtonContainer = styled.button`
             border: 1px solid #E4105D;
             top: -5px;
             left: -6px;
+            max-width: 360px;
             width: calc(100% + 10px);
             height: calc(100% + 10px);
-            border-radius: 26px;
+            border-radius: 27px;
         }
     `}
 `

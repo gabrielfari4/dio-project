@@ -28,7 +28,7 @@ export const Column = styled.div`
 `
 
 export const Wrapper = styled.div`
-    max-width: 300px;
+    max-width: 368px;
 `
 
 export const TitleLogin = styled.p`
@@ -36,7 +36,6 @@ export const TitleLogin = styled.p`
     font-style: normal;
     font-size: 32px;
     font-weight: 700;
-    margin-bottom: 20px;
     line-height: 44px;
 `
 
@@ -45,6 +44,21 @@ export const SubTitleLogin = styled.p`
     font-style: normal;
     font-size: 18px;
     font-weight: 400;
-    margin-bottom: 35px;
+    margin-top: ${(props) => props.marginTop};
+    margin-bottom: ${(props) => props.marginBottom};
     line-height: 25px;
+`
+
+export const TenhoContaText = styled.p`
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+
+    color: #FFFFFF;
+    a {
+        text-decoration: none;
+        color: #23DD7A;
+    }
 `

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ISubTitleLogin } from "./types";
 
 
 export const Container = styled.main`
@@ -39,7 +40,7 @@ export const TitleLogin = styled.p`
     line-height: 44px;
 `
 
-export const SubTitleLogin = styled.p`
+export const SubTitleLogin = styled.p<ISubTitleLogin>`
     font-family: 'Open Sans';
     font-style: normal;
     font-size: 18px;

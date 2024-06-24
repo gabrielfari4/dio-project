@@ -2,8 +2,9 @@ import Button from "../Button";
 import { BuscarInputContainer, HeaderContainer, Input, Menu, MenuRight, Row, UserPicture, Wrapper } from "./styles";
 import Logo from '../../assets/logo-dio.png';
 import { Link, useNavigate } from "react-router-dom";
+import { IHeader } from "./types";
 
-const Header = ({ autenticado }) => {
+const Header = ({ autenticado }: IHeader) => {
     const navigate = useNavigate();
 
     const handleClickSignIn = () => {

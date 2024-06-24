@@ -7,9 +7,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup"
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { MdEmail, MdLock } from "react-icons/md";
 import { api } from "../../services/api";
+import { IFormData, } from "./types";
 
 const schema = yup.object(
     {
@@ -25,15 +26,15 @@ const SignUp = () => {
     const [newEmail, setNewEmail] = useState('');
     const [newPassword, setNewPassword] = useState('');
 
-    const handleName = (e) => {
+    const handleName = (e: ChangeEvent<HTMLInputElement>) => {
         setNewName(e.target.value)
     }
 
-    const handleEmail = (e) => {
+    const handleEmail = (e: ChangeEvent<HTMLInputElement>) => {
         setNewEmail(e.target.value)
     }
 
-    const handlePassword = (e) => {
+    const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
         setNewPassword(e.target.value)
     }
 
@@ -43,20 +44,22 @@ const SignUp = () => {
         control,
         handleSubmit,
         formState: { errors }
-      } = useForm({
+      } = useForm<IFormData>({
         resolver: yupResolver(schema),
         mode: 'onSubmit'
     });
 
-    const onSubmit = async formData => {
+    const onSubmit = async (formData: IFormData) => {
             const { data } = await api.get(`user`)
             console.log(data)
-            if (data.find(user => user.email === newEmail)) {
+            if (data.find((user: { email: string; }) => user.email === newEmail)) {
                 alert('E-mail já cadastrado.')
             } else if (newName && newEmail && newPassword) {
                 navigate('/feed')
             } 
     }
+
+    //TODO: implementar registro de cadastro no json 
 
     return (
         <>

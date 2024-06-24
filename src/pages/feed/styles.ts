@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { IColumn } from "./types";
 
 
 export const Container = styled.main`
@@ -30,7 +31,7 @@ export const TitleHighlight = styled.h3`
     color: #FFFFFF70;
 `
 
-export const Column = styled.div`
+export const Column = styled.div<IColumn>`
     flex: ${({flex}) => flex};
     padding-right: 24px;
 `

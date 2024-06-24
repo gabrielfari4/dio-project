@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components";
+import { IButtonStyled } from "./types";
 
 
-export const ButtonContainer = styled.button`
+export const ButtonContainer = styled.button<IButtonStyled>`
     background: #565656;
     border-radius: 27px;
     position: relative;
@@ -15,7 +16,7 @@ export const ButtonContainer = styled.button`
         cursor: pointer;
         }
         
-        ${({variant}) => variant !== "primary" && css`
+        ${({variant}) => variant !== "primary" && css<IButtonStyled>`
         font-size: 16px;
         min-width: 167px;
         height: 43px;

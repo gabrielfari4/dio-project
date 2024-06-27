@@ -7,10 +7,8 @@ import { MdEmail, MdLock } from "react-icons/md";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup"
-import { api } from '../../services/api'
 import { IFormData } from "./types";
-import { useContext } from "react";
-import { AuthContext } from "../../context/auth";
+import { useAuth } from "../../hooks/useAuth";
 
 const schema = yup.object(
     {
@@ -21,7 +19,7 @@ const schema = yup.object(
 
 const Login = () => {
 
-    const { handleLogin } = useContext(AuthContext)
+    const { handleLogin } = useAuth();
     /* const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [validate, setValidate] = useState('') */

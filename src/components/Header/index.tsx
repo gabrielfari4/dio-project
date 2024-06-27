@@ -2,8 +2,7 @@ import Button from "../Button";
 import { BuscarInputContainer, HeaderContainer, Input, Menu, MenuRight, Row, SairText, UserPicture, Wrapper } from "./styles";
 import Logo from '../../assets/logo-dio.png';
 import { Link, useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../../context/auth";
+import { useAuth } from "../../hooks/useAuth";
 
 
 const Header = () => {
@@ -17,7 +16,7 @@ const Header = () => {
         navigate('/signup')
     }
 
-    const { user, handleSignOut } = useContext(AuthContext)
+    const { user, handleSignOut } = useAuth()
 
   return (
     <Wrapper>

@@ -9,6 +9,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup"
 import { api } from '../../services/api'
 import { IFormData } from "./types";
+import { useContext } from "react";
+import { AuthContext } from "../../context/auth";
 
 const schema = yup.object(
     {
@@ -19,10 +21,11 @@ const schema = yup.object(
 
 const Login = () => {
 
-    const navigate = useNavigate();
+    const { handleLogin } = useContext(AuthContext)
     /* const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [validate, setValidate] = useState('') */
+
 
     const {
         control,
@@ -36,17 +39,7 @@ const Login = () => {
     //console.log(errors)
 
     const onSubmit = async (formData: IFormData) => {
-        try{
-            const { data } = await api.get(`user?email=${formData.email}&senha=${formData.password}`)
-            console.log(data)
-            if (data.length === 1 && formData.password === data[0].senha) {
-                navigate('/feed')
-            } else {
-                alert('Email ou senha inválido.')
-            }
-        } catch {
-            alert('Houve um erro')
-        } 
+        handleLogin(formData)
     }
 
     // implementação que feita por mim para validar o login
@@ -65,7 +58,7 @@ const Login = () => {
     
     const handleValidation = (e) => {
         e.preventDefault()
-        const validado = email !== 'usuario@email.com' && password !== 'senha'
+        const validado = email !== 'usuario@email.com' && password !== 'password'
 
         if (validado) {
             handleClickFeed()

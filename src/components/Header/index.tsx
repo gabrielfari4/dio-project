@@ -1,10 +1,12 @@
 import Button from "../Button";
-import { BuscarInputContainer, HeaderContainer, Input, Menu, MenuRight, Row, UserPicture, Wrapper } from "./styles";
+import { BuscarInputContainer, HeaderContainer, Input, Menu, MenuRight, Row, SairText, UserPicture, Wrapper } from "./styles";
 import Logo from '../../assets/logo-dio.png';
 import { Link, useNavigate } from "react-router-dom";
-import { IHeader } from "./types";
+import { useContext } from "react";
+import { AuthContext } from "../../context/auth";
 
-const Header = ({ autenticado }: IHeader) => {
+
+const Header = () => {
     const navigate = useNavigate();
 
     const handleClickSignIn = () => {
@@ -15,6 +17,8 @@ const Header = ({ autenticado }: IHeader) => {
         navigate('/signup')
     }
 
+    const { user, handleSignOut } = useContext(AuthContext)
+
   return (
     <Wrapper>
         <HeaderContainer>
@@ -22,7 +26,7 @@ const Header = ({ autenticado }: IHeader) => {
                 <Link to={'/'}>
                     <img src={Logo} alt="Logo da DIO" />
                 </Link>
-                {autenticado ? (
+                {user.id ? (
                     <>
                         <BuscarInputContainer>
                             <Input placeholder="Buscar..." />
@@ -33,8 +37,11 @@ const Header = ({ autenticado }: IHeader) => {
                 ) : null}
              </Row>  
             <Row>
-                {autenticado ? (
-                    <UserPicture src="https://avatars.githubusercontent.com/u/94396134?v=4"/>
+                {user.id ? (
+                    <>
+                        <UserPicture src="https://avatars.githubusercontent.com/u/94396134?v=4"/>
+                        <Link to={'/'} style={{textDecoration:'none'}} onClick={handleSignOut}><SairText>Sair</SairText></Link>
+                    </>
                 ) : (
                     <>
                         <MenuRight href="#">Nome</MenuRight>

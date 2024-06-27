@@ -68,6 +68,7 @@ export const UserPicture = styled.img`
     height: 32px;
     border-radius: 22px;
     border: 2px solid #FFFFFF;
+    margin-right: 10px;
 `
 
 export const Input = styled.input`
@@ -75,4 +76,9 @@ export const Input = styled.input`
     flex: 1;
     border: 0;
     color: #FFFFFF;
+`
+
+export const SairText = styled.p`
+    color: #EEEEEE;
+    font-size: 18px;
 `

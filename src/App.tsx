@@ -4,6 +4,7 @@ import Login from "./pages/login";
 import Feed from "./pages/feed";
 import Teste from "./pages";
 import SignUp from "./pages/signup";
+import { AuthContextProvider } from "./context/auth";
 
 
 
@@ -11,13 +12,15 @@ import SignUp from "./pages/signup";
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/feed" element={<Feed />} />
-        <Route path="/teste" element={<Teste />} />
-        <Route path="/signup" element={<SignUp />} />
-      </Routes>
+      <AuthContextProvider>  
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/feed" element={<Feed />} />
+          <Route path="/teste" element={<Teste />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </AuthContextProvider>
     </BrowserRouter>
   );
 }
